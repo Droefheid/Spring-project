@@ -3,6 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/API.Basket/API.Basket.iml" filepath="$PROJECT_DIR$/API.Basket/API.Basket.iml" />
+      <module fileurl="file://$PROJECT_DIR$/API.Product/API.Product.iml" filepath="$PROJECT_DIR$/API.Product/API.Product.iml" />
+      <module fileurl="file://$PROJECT_DIR$/API.User/API.User.iml" filepath="$PROJECT_DIR$/API.User/API.User.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WEB.Basket/WEB.Basket.iml" filepath="$PROJECT_DIR$/WEB.Basket/WEB.Basket.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WEB.Product/WEB.Product.iml" filepath="$PROJECT_DIR$/WEB.Product/WEB.Product.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WEB.User/WEB.User.iml" filepath="$PROJECT_DIR$/WEB.User/WEB.User.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/netchill.iml" filepath="$PROJECT_DIR$/.idea/netchill.iml" />
     </modules>
   </component>
