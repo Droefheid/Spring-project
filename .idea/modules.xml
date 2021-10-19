@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/API.Basket/API.Basket.iml" filepath="$PROJECT_DIR$/API.Basket/API.Basket.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/netchill.iml" filepath="$PROJECT_DIR$/.idea/netchill.iml" />
     </modules>
   </component>
