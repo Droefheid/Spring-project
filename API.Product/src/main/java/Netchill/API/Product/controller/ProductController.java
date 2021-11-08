@@ -3,10 +3,7 @@ package Netchill.API.Product.controller;
 
 import Netchill.API.Product.model.Product;
 import Netchill.API.Product.service.ProductService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,4 +20,25 @@ public class ProductController {
                 service.findAll() :
                 service.findByCategory(category);
     }
+
+    @GetMapping("/product/{id}")
+    public Product getProduct(@PathVariable("id") int id){
+        return service.findProductById(id);
+    }
+
+    @PostMapping("/product")
+    public void createProduct(@RequestBody Product product){
+        service.saveProduct(product);
+    }
+
+    @PutMapping("/product/{id}")
+    public void updateProduct(@RequestBody Product product, Product productUpd){
+        int id = product.getId();
+        service.updateProduct(id,productUpd);
+    }
+
+   @DeleteMapping("/product/{id}")
+   public void deleteProduct(@PathVariable("id") int id){
+        service.deleteProduct(id);
+   }
 }
