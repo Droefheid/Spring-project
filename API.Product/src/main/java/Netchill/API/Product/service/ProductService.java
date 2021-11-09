@@ -1,6 +1,8 @@
 package Netchill.API.Product.service;
 
 import Netchill.API.Product.model.Product;
+import Netchill.API.Product.repository.ProductsRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,39 +14,51 @@ import java.util.*;
 @Service
 public class ProductService {
 
-    private static List<Product> products = new ArrayList<>();
-    private static int count =0;
+    @Autowired
+    private ProductsRepository repo;
 
 
-    public List<Product> findAll(){
-        return products;
+
+
+    public Iterable<Product>getProducts(){
+        return repo.findAll();
     }
+    public Product getProduct(int id){
+        return repo.findById(id).orElseThrow(InternalError::new);
+    }
+    public Iterable<Product> getProductsFromCategory(String category){
+        return repo.findByCategory(category);
+    }
+    public Product saveProduct(Product product){
+        return repo.save(product);
+    }
+
+    public Product updateProduct(Product product,int id){
+        Product p = repo.findById(id).orElseThrow(InternalError::new);
+        p.setName(product.getName());
+        p.setShortDescription(product.getShortDescription());
+        p.setLongDescription(product.getLongDescription());
+        p.setPrice(product.getPrice());
+        p.setCategory(product.getCategory());
+        return repo.save(p);
+    }
+    public void deleteProduct(Product product){
+        repo.delete(product);
+    }
+
+/*
+
 
     public List<Product> findByCategory(String category){
         return products.stream().filter(k -> k.getCategory().equals(category)).collect(Collectors.toList());
     }
 
-    public Product findProductById(int id){
-        return products.stream().filter(k -> k.getId() == id).collect(toSingleton());
-
-    }
-    // stackOverflow : https://stackoverflow.com/questions/22694884/filter-java-stream-to-1-and-only-1-element
-    private static <T> Collector<T, ?, T> toSingleton(){
-        return Collectors.collectingAndThen(
-                Collectors.toList(),
-                list -> {
-                    if(list.size() != 1){
-                        throw new IllegalStateException();
-                    }
-                    return list.get(0);
-                }
-        );
-    }
 
     public void saveProduct(Product product){
         product.setId(++count);
         products.add(product);
     }
+
 
     public void updateProduct(int id, Product product){
         Product productTemp = findProductById(id);
@@ -59,5 +73,5 @@ public class ProductService {
         Product productTemp = findProductById(id);
         products.remove(productTemp);
     }
-
+*/
 }

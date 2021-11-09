@@ -29,6 +29,16 @@ public class ProductProxy {
         );
         return response.getBody();
     }
+    public Product findProductById(int id){
+        RestTemplate template = new RestTemplate();
+        ResponseEntity<Product> response = template.exchange(
+                baseUrl+ "/product/{id}",
+                HttpMethod.GET,
+                null,
+                Product.class
+        );
+        return response.getBody();
+    }
 
     public void createProduct(Product product){
         RestTemplate template = new RestTemplate();
@@ -40,6 +50,21 @@ public class ProductProxy {
                 Product.class
         );
     }
+
+    public void deleteProduct(int id){
+        Product productID = findProductById(id);
+       /* RestTemplate template = new RestTemplate();
+        HttpEntity<Product> request template.exchange(
+                baseUrl + "/product/{id}",
+                HttpMethod.DELETE,
+                null,
+                Product.class
+        );*/
+        RestTemplate template = new RestTemplate();
+        template.delete(baseUrl+"/product/{id}");
+    }
+
+
 
 
 
