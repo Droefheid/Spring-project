@@ -3,7 +3,9 @@ package Netchill.API.Product.service;
 import Netchill.API.Product.model.Product;
 import Netchill.API.Product.repository.ProductsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +26,8 @@ public class ProductService {
         return repo.findAll();
     }
     public Product getProduct(int id){
-        return repo.findById(id).orElseThrow(InternalError::new);
+        return repo.findById(id).orElseThrow(() ->
+                new ResponseStatusException(HttpStatus.NOT_FOUND, "No object with id "+id));
     }
     public Iterable<Product> getProductsFromCategory(String category){
         return repo.findByCategory(category);
