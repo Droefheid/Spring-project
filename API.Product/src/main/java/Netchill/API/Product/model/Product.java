@@ -15,7 +15,7 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private String shortDescription;
+    private String shortDescription; //short_description
     private String longDescription;
     private int price;
     private String category;
