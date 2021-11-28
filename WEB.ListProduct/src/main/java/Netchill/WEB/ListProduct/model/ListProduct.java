@@ -1,4 +1,4 @@
-package Netchill.WEB.Basket.model;
+package Netchill.WEB.ListProduct.model;
 
 import lombok.Data;
 

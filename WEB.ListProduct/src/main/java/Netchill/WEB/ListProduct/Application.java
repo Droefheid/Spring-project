@@ -1,4 +1,4 @@
-package Netchill.WEB.Basket;
+package Netchill.WEB.ListProduct;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

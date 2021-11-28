@@ -1,4 +1,4 @@
-package Netchill.WEB.Basket;
+package Netchill.WEB.ListProduct;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
