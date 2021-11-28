@@ -11,15 +11,19 @@
         <module name="WEB.Basket" />
         <module name="WEB.User" />
         <module name="API.Basket" />
+        <module name="WEB.Connexion" />
+        <module name="API.Comments" />
         <module name="API.User" />
         <module name="API.Product" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="API.Basket" target="11" />
+      <module name="API.Comments" target="11" />
       <module name="API.Product" target="11" />
       <module name="API.User" target="11" />
       <module name="WEB.Basket" target="11" />
+      <module name="WEB.Connexion" target="11" />
       <module name="WEB.Product" target="11" />
       <module name="WEB.User" target="11" />
     </bytecodeTargetLevel>
@@ -27,9 +31,11 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="API.Basket" options="-parameters" />
+      <module name="API.Comments" options="-parameters" />
       <module name="API.Product" options="-parameters" />
       <module name="API.User" options="-parameters" />
       <module name="WEB.Basket" options="-parameters" />
+      <module name="WEB.Connexion" options="-parameters" />
       <module name="WEB.Product" options="-parameters" />
       <module name="WEB.User" options="-parameters" />
     </option>
