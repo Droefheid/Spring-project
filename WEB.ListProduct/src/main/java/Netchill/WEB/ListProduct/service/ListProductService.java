@@ -15,6 +15,7 @@ public class ListProductService {
         this.proxy = proxy;
     }
 
+    public Product findById(int id){return proxy.findById(id);}
     public List<Product> findAll(){ return proxy.findAll();}
 
     public List<Product> findProducts(String category, int priceMin,int priceMax){

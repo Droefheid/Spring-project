@@ -27,4 +27,7 @@ public interface ListProductProxy {
 
     @DeleteMapping("/{id}")
     Product deleteProduct(@PathVariable("id") int id);
+
+    @GetMapping("/{id}")
+    Product findById(@PathVariable("id") int id);
 }
