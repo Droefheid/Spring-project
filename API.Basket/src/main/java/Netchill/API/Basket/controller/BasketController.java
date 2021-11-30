@@ -6,7 +6,9 @@ import Netchill.API.Basket.service.BasketService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +16,9 @@ import java.util.List;
 @RequestMapping("/basket")
 public class BasketController {
 
-    private BasketService service;
+    private BasketService service = new BasketService();
+
+
 
     @GetMapping
     public ResponseEntity<List<Basket>> getBasket(@RequestBody(required = false)int idUser){
@@ -35,5 +39,34 @@ public class BasketController {
         }else{
             return new ResponseEntity<>(basket,HttpStatus.OK);
         }
+    }
+
+    @PostMapping
+    public ResponseEntity<Void> createProduct(@RequestBody Basket basket){
+        Basket bask = service.saveBasket(basket);
+        if(bask == null) return ResponseEntity.noContent().build();
+        URI location = ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("/basket/{id}")
+                .buildAndExpand(bask.getId())
+                .toUri();
+        return ResponseEntity.created(location).build();
+    }
+
+    @PutMapping("/basket/{id}")
+    public ResponseEntity<HttpStatus> updateBasket(@PathVariable("id")int idBasket,@RequestBody Basket basket){
+        Basket bask = service.getBasket(idBasket);
+        if (bask==null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }else{
+            service.updateBasket(basket,idBasket);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+    }
+
+    @DeleteMapping("/basket/{id}")
+    public ResponseEntity<HttpStatus> deleteBasket(@RequestBody Basket basket){
+        service.deleteBasket(basket);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
