@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html html="" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en"><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"><title>YOUR TITLE HERE</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head><body>
+
+<!-- Navbar -->
+<nav class="navbar fixed-top navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="http://localhost:9003">Accueil</a>
+        <a class="nav-link" href="/">Accueil connexion</a> <a th:if="${connected != null}" class="nav-link"
+                                                              th:href="@{/account}">Mon compte</a>
+        <a th:if="${connected != null}" class="nav-link" th:href="@{'http://localhost:9002/' + ${connected}}">Mon panier</a>
+        <a th:if="${connected != null}" class="nav-link" th:href="@{/logout}">Se déconnecter</a>
+    </div>
+</nav>
+
+<!-- Page content -->
+<div class="w3-content" style="">
+
+    <!-- Add Section -->
+    <div class="w3-black" id="SECTION2">
+        <div class="w3-container w3-content w3-padding-64" style="">
+            <h2 class="w3-wide w3-center">UPDATE PRODUCT</h2>
+            <p class="w3-opacity w3-center"><i>mettez à jour votre produit?</i></p><br>
+
+            <form class="w3-ul w3-border w3-white w3-text-grey" method="post" th:action="@{/update/{id}(id=${product.getId()})}" th:object="${product}">
+                <p class="w3-rest w3-row-padding" style=""><input type="text" style="" class="w3-padding" th:text="${product.getName()}" th:field="*{name}"></p>
+                <p class="w3-rest w3-row-padding" style=""><input type="number" step="0.01" style="" class="w3-padding" th:text="${product.getPrice()}" th:field="*{price}"></p>
+                <p class="w3-rest w3-row-padding" style=""><input type="text" style="" class="w3-padding" th:text="${product.getCategory()}" th:field="*{category}"></p>
+                <p class="w3-row-padding"><input class="w3-btn w3-black" type="submit" value="SUBMIT"></p>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- End Page Content -->
+
+
+<!-- Image of location/map -->
+<img src="squelette_files/map.html" class="w3-image w3-greyscale-min" style="">
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+    <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+
+
+
+</body></html>

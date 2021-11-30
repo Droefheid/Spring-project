@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="WEB.Product" />
+        <module name="WEB.Basket" />
         <module name="WEB.User" />
         <module name="API.Basket" />
         <module name="WEB.Connexion" />
@@ -22,6 +23,7 @@
       <module name="API.Comments" target="11" />
       <module name="API.Product" target="11" />
       <module name="API.User" target="11" />
+      <module name="WEB.Basket" target="11" />
       <module name="WEB.Connexion" target="11" />
       <module name="WEB.ListProduct" target="11" />
       <module name="WEB.Product" target="11" />
@@ -34,6 +36,7 @@
       <module name="API.Comments" options="-parameters" />
       <module name="API.Product" options="-parameters" />
       <module name="API.User" options="-parameters" />
+      <module name="WEB.Basket" options="-parameters" />
       <module name="WEB.Connexion" options="-parameters" />
       <module name="WEB.ListProduct" options="-parameters" />
       <module name="WEB.Product" options="-parameters" />

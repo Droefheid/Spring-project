@@ -10,5 +10,4 @@ public interface ProductsRepository
     public Iterable<Product> findByCategory(String category);
 
 
-
 }
