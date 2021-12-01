@@ -1,11 +1,12 @@
 package Netchill.WEB.ListProduct.service;
 
 import Netchill.WEB.ListProduct.model.Product;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.*;
-
+@Service
 public class ListProductService {
 
     private final ListProductService proxy;
