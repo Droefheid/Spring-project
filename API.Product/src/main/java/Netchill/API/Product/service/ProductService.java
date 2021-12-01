@@ -25,10 +25,13 @@ public class ProductService {
     public Iterable<Product>getProducts(){
         return repo.findAll();
     }
+    public Iterable<Product>getProductsBy(String category, int priceMin,int priceMax, boolean asc){return repo.findProducts(category, priceMin,priceMax, asc);}
+
     public Product getProduct(int id){
         return repo.findById(id).orElseThrow(() ->
                 new ResponseStatusException(HttpStatus.NOT_FOUND, "No object with id "+id));
     }
+
     public Iterable<Product> getProductsFromCategory(String category){
         return repo.findByCategory(category);
     }

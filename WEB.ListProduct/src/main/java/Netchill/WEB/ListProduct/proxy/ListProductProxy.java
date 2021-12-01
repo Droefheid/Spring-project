@@ -17,7 +17,10 @@ public interface ListProductProxy {
 
 
     @GetMapping
-    List<Product> findProducts(@PathVariable(required = false) String category, @PathVariable(required = false) int priceMin,@PathVariable(required = false) int priceMax);
+    List<Product> findProducts(@PathVariable(required = false) String category,
+                               @PathVariable(required = false) int priceMin,
+                               @PathVariable(required = false) int priceMax,
+                               @PathVariable(required=true) boolean asc);
 
     @PostMapping
     Product createProduct(@RequestBody Product product);

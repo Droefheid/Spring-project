@@ -10,12 +10,14 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 
 @RestController
 @RequestMapping("/product")
-public class ProductController {
+public class ProductController  {
 
     private ProductService service;
 /*
@@ -71,6 +73,64 @@ public class ProductController {
             return new ResponseEntity<>(p,HttpStatus.OK);
         }
     }
+    @GetMapping("/product")
+    public ResponseEntity<List<Product>> getProducts(@PathVariable(required = false)String category,
+                                               @PathVariable(required = false)int priceMin,
+                                               @PathVariable(required = false)int priceMax,
+                                                     @PathVariable(required = true)boolean asc){
+
+        List<Product> products = findProductsByP(category, priceMin, priceMax,asc);
+        if(products.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(products,HttpStatus.OK);
+
+
+    }
+
+    private List<Product> findProductsByP(String category, int priceMin,int priceMax,boolean asc){
+        List<Product> products = new ArrayList<>();
+        if(category == null){
+            if(priceMin <0 && priceMax > Integer.MAX_VALUE){
+                service.getProducts().forEach(products::add);
+            }else {
+                for (Product p : service.getProductsBy(null,priceMin,priceMax,asc)) {
+                    if (p.getPrice() >= priceMin && p.getPrice() <= priceMax) {
+                        products.add(p);
+                    }
+                }
+            }
+        }else{
+
+            if(priceMin <0 && priceMax > Integer.MAX_VALUE){
+                service.getProductsFromCategory(category).forEach(products::add);
+            }else{
+                for (Product p :service.getProductsBy(category,priceMin,priceMax,asc)) {
+                    if((p.getCategory()==category) && (p.getPrice() >= priceMin) && (p.getPrice() <= priceMax)){
+                        products.add(p);
+                    }
+                }
+            }
+
+        }
+
+        Collections.sort(products, new Comparator<Product>() {
+            @Override
+            public int compare(Product o1, Product o2) {
+                if(asc==true){
+                    return Integer.compare(o1.getPrice(), o2.getPrice());
+                }else{
+                    return Integer.compare(o2.getPrice(), o1.getPrice());
+                }
+            }
+        });
+
+        return products;
+    }
+
+
+
+
 
 
     @PostMapping
