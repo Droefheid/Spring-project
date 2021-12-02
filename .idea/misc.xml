@@ -13,11 +13,12 @@
         <option value="$PROJECT_DIR$/WEB.Connexion/Connexion/pom.xml" />
         <option value="$PROJECT_DIR$/WEB.Connexion/pom.xml" />
         <option value="$PROJECT_DIR$/API.Comments/pom.xml" />
+        <option value="$PROJECT_DIR$/API.Gateway/pom.xml" />
         <option value="$PROJECT_DIR$/WEB.ListProduct/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="14" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="corretto-15" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

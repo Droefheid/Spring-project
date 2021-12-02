@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.*;
-@Controller
-//@RequestMapping("/product")
+@Controller("/products")
+//@RequestMapping("/products")
 public class ListProductFront {
 
 
@@ -21,21 +21,22 @@ public class ListProductFront {
         this.service = service;
     }
 
+    //method to generate table products
     @GetMapping
     public String home(@RequestParam (required=false) String category,
-                       @RequestParam(required = false) int priceMin,
-                       @RequestParam(required = false) int priceMax,
-                       @RequestParam boolean asc,
+                       @RequestParam(defaultValue = "-1") int priceMin,
+                       @RequestParam(defaultValue = "9999999") int priceMax,
+                       @RequestParam(defaultValue = "true") boolean asc,
                        Model model){
         if((category==null)){
-            if(priceMin<0 && priceMax>= Integer.MAX_VALUE) {
+            if(priceMin<0 && priceMax>= 9999999) {
                 model.addAttribute("products", service.findAll());
             }else{
                 model.addAttribute("products", service.findProducts(null,priceMin,priceMax,asc));
             }
         }else{
-            if(priceMin<0 && priceMax>= Integer.MAX_VALUE) {
-                model.addAttribute("products", service.findProducts(category,-1,Integer.MAX_VALUE,asc));
+            if(priceMin<0 && priceMax>= 9999999) {
+                model.addAttribute("products", service.findProducts(category,-1,9999999,asc));
             }else{
                 model.addAttribute("products", service.findProducts(category,priceMin,priceMax,asc));
             }
@@ -50,7 +51,7 @@ public class ListProductFront {
         return new ModelAndView("redirect:/");
     }
 
-    @GetMapping
+    @DeleteMapping("/{id}")
     public ModelAndView deleteProduct(@PathVariable("id") int id){
         service.deleteProduct(id);
         return new ModelAndView("redirect:/");

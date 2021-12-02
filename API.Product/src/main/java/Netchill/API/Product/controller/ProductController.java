@@ -88,7 +88,7 @@ public class ProductController  {
 
     }
 
-    private List<Product> findProductsByP(String category, int priceMin,int priceMax,boolean asc){
+    public List<Product> findProductsByP(String category, int priceMin,int priceMax,boolean asc){
         List<Product> products = new ArrayList<>();
         if(category == null){
             if(priceMin <0 && priceMax > Integer.MAX_VALUE){
