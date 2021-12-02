@@ -9,18 +9,18 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Component
-@FeignClient(name = "gateway")
-@RequestMapping("/users")
+@FeignClient(name = "http://localhost:9001/")
+//@RequestMapping("/products")
 public interface ListProductProxy {
     @GetMapping
     List<Product> findAll();
 
 
     @GetMapping
-    List<Product> findProducts(@PathVariable(required = false) String category,
-                               @PathVariable(required = false) int priceMin,
-                               @PathVariable(required = false) int priceMax,
-                               @PathVariable(required=true) boolean asc);
+    List<Product> findProductsBy(@PathVariable(required = false) String category,
+                                 @RequestParam(defaultValue="-1") int priceMin,
+                               @RequestParam(defaultValue="9999999") int priceMax,
+                               @RequestParam(defaultValue = "true") boolean asc);
 
     @PostMapping
     Product createProduct(@RequestBody Product product);

@@ -14,6 +14,7 @@
         <option value="$PROJECT_DIR$/WEB.Connexion/pom.xml" />
         <option value="$PROJECT_DIR$/API.Comments/pom.xml" />
         <option value="$PROJECT_DIR$/WEB.ListProduct/pom.xml" />
+        <option value="$PROJECT_DIR$/API.Gateway/pom.xml" />
       </list>
     </option>
   </component>

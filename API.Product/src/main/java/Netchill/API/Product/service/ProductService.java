@@ -52,32 +52,4 @@ public class ProductService {
         repo.delete(product);
     }
 
-/*
-
-
-    public List<Product> findByCategory(String category){
-        return products.stream().filter(k -> k.getCategory().equals(category)).collect(Collectors.toList());
-    }
-
-
-    public void saveProduct(Product product){
-        product.setId(++count);
-        products.add(product);
-    }
-
-
-    public void updateProduct(int id, Product product){
-        Product productTemp = findProductById(id);
-        productTemp.setCategory(product.getCategory());
-        productTemp.setPrice(product.getPrice());
-        productTemp.setName(product.getName());
-        productTemp.setLongDescription(product.getLongDescription());
-        productTemp.setShortDescription(product.getShortDescription());
-    }
-
-    public void deleteProduct(int id){
-        Product productTemp = findProductById(id);
-        products.remove(productTemp);
-    }
-*/
 }

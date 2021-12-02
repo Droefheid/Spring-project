@@ -21,7 +21,7 @@ public class ListProductService {
     public List<Product> findAll(){ return proxy.findAll();}
 
     public List<Product> findProducts(String category, int priceMin,int priceMax, boolean asc){
-        return proxy.findProducts(category, priceMin,priceMax, asc);
+        return proxy.findProductsBy(category, priceMin,priceMax, asc);
     }
 
 

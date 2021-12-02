@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/API.Basket/API.Basket.iml" filepath="$PROJECT_DIR$/API.Basket/API.Basket.iml" />
       <module fileurl="file://$PROJECT_DIR$/API.Comments/API.Comments.iml" filepath="$PROJECT_DIR$/API.Comments/API.Comments.iml" />
+      <module fileurl="file://$PROJECT_DIR$/API.Gateway/API.Gateway.iml" filepath="$PROJECT_DIR$/API.Gateway/API.Gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/API.Product/API.Product.iml" filepath="$PROJECT_DIR$/API.Product/API.Product.iml" />
       <module fileurl="file://$PROJECT_DIR$/API.User/API.User.iml" filepath="$PROJECT_DIR$/API.User/API.User.iml" />
       <module fileurl="file://$PROJECT_DIR$/API.Comments/Comments.iml" filepath="$PROJECT_DIR$/API.Comments/Comments.iml" />

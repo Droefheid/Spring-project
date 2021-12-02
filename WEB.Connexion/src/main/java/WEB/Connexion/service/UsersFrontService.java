@@ -31,7 +31,7 @@ public class UsersFrontService {
 
     private final UsersFrontProxy proxy;
     private final CustomProperties properties;
-    private final Ed25519.Algorithm jwtAlgorithm;
+    private final Algorithm jwtAlgorithm;
     private final JWTVerifier verifier;
 
     public UsersFrontService(UsersFrontProxy proxy, CustomProperties props) {
