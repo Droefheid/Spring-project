@@ -8,7 +8,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="WEB.Product" />
-        <module name="WEB.Basket" />
         <module name="WEB.User" />
         <module name="API.Gateway" />
         <module name="API.Basket" />

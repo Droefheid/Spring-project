@@ -9,9 +9,8 @@
       <module fileurl="file://$PROJECT_DIR$/API.User/API.User.iml" filepath="$PROJECT_DIR$/API.User/API.User.iml" />
       <module fileurl="file://$PROJECT_DIR$/API.Comments/Comments.iml" filepath="$PROJECT_DIR$/API.Comments/Comments.iml" />
       <module fileurl="file://$PROJECT_DIR$/WEB.Connexion/Connexion.iml" filepath="$PROJECT_DIR$/WEB.Connexion/Connexion.iml" />
-      <module fileurl="file://$PROJECT_DIR$/WEB.ListProduct/WEB.Basket.iml" filepath="$PROJECT_DIR$/WEB.ListProduct/WEB.Basket.iml" />
       <module fileurl="file://$PROJECT_DIR$/WEB.Connexion/WEB.Connexion.iml" filepath="$PROJECT_DIR$/WEB.Connexion/WEB.Connexion.iml" />
-      <module fileurl="file://$PROJECT_DIR$/WEB.Basket/WEB.ListProduct.iml" filepath="$PROJECT_DIR$/WEB.Basket/WEB.ListProduct.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WEB.ListProduct/WEB.ListProduct.iml" filepath="$PROJECT_DIR$/WEB.ListProduct/WEB.ListProduct.iml" />
       <module fileurl="file://$PROJECT_DIR$/WEB.Product/WEB.Product.iml" filepath="$PROJECT_DIR$/WEB.Product/WEB.Product.iml" />
       <module fileurl="file://$PROJECT_DIR$/WEB.User/WEB.User.iml" filepath="$PROJECT_DIR$/WEB.User/WEB.User.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/netchill.iml" filepath="$PROJECT_DIR$/.idea/netchill.iml" />
