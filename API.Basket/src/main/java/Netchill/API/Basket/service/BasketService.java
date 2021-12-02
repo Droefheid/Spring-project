@@ -30,9 +30,9 @@ public class BasketService {
         return repository.save(basket);
     }
 
-    //public Basket createBasket(Basket basket,int idUser){
-    //    return repository.createBasket(basket,idUser);
-    //}
+    public Basket createBasket(int idUser,int idProduct){
+        return repository.createBasket(idUser,idProduct);
+    }
 
     public Basket updateBasket(Basket basket,int idBasket){
         Basket b = repository.findById(idBasket).orElseThrow(InternalError::new);
@@ -40,9 +40,9 @@ public class BasketService {
         return repository.save(b);
     }
 
-    public Basket createBasket(int idUser,int idProduct){
-        return repository.createBasket(idUser,idProduct);
-    }
+   // public Basket createBasket(int idUser,int idProduct){
+    //    return repository.createBasket(idUser,idProduct);
+   // }
 
     public void deleteBasket(Basket basket){
         repository.delete(basket);

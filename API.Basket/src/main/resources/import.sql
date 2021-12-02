@@ -1,1 +1,1 @@
-INSERT INTO basket(id,idUser,idProduct,quantity) VALUES ('1','1','25','1');
+INSERT INTO baskets(id_user,id_product,quantity) VALUES (1,1,25);

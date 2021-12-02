@@ -12,9 +12,10 @@ public interface BasketRepository extends CrudRepository<Basket, Integer> {
     Iterable<Basket> findBasketsByIdUser(int idUser);
 
     @Modifying
-    @Query(value = "insert into baskets(id,iduser,idProduct,quantity) " +
-            "values (:id,:idUser,:idProduct,:quantity)",nativeQuery = true)
+    @Query(value = "insert into baskets(id_user,id_product,quantity) " +
+            "values (:idUser,:idProduct,:quantity)",nativeQuery = true)
     Basket createBasket(int idUser,int idProduct);
+
 
 }
 
