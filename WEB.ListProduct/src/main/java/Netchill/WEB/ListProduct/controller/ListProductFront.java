@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.*;
 @Controller
-@RequestMapping("/listProduct")
+//@RequestMapping("/product")
 public class ListProductFront {
 
 
@@ -25,7 +25,7 @@ public class ListProductFront {
     public String home(@RequestParam (required=false) String category,
                        @RequestParam(required = false) int priceMin,
                        @RequestParam(required = false) int priceMax,
-                       @RequestParam(required = true) boolean asc,
+                       @RequestParam boolean asc,
                        Model model){
         if((category==null)){
             if(priceMin<0 && priceMax>= Integer.MAX_VALUE) {
