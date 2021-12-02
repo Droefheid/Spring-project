@@ -22,9 +22,10 @@ public interface BasketProxy {
     Basket createBasket(@RequestBody Basket basket);
 
     @PutMapping("/{id}")
-    Basket updateBasket(@RequestBody Basket basket,@PathVariable("id") int idUser,int idProduct);
+    Basket updateBasket(Basket basket, int idUser,int idProduct);
 
     @DeleteMapping("/{id}")
     Basket deleteBasket(@PathVariable("id") int idUser,int idProduct);
+
 
 }

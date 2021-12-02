@@ -16,8 +16,11 @@ import java.util.List;
 @RequestMapping("/basket")
 public class BasketController {
 
-    private BasketService service = new BasketService();
+    private BasketService service;
 
+    public BasketController(BasketService service) {
+        this.service = service;
+    }
 
 
     @GetMapping
@@ -42,8 +45,9 @@ public class BasketController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createProduct(@RequestBody Basket basket){
-        Basket bask = service.saveBasket(basket);
+    public ResponseEntity<Void> creatBasket(@RequestBody Basket basket,int idUser,int idProduct){
+        Basket bask = service.createBasket(idUser,idProduct);
+
         if(bask == null) return ResponseEntity.noContent().build();
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()

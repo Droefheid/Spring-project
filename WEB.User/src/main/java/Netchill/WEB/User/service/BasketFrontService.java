@@ -1,6 +1,7 @@
 package Netchill.WEB.User.service;
 
 import Netchill.WEB.User.model.Basket;
+import Netchill.WEB.User.proxy.BasketProxy;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
@@ -8,29 +9,29 @@ import java.util.List;
 @Service
 public class BasketFrontService {
 
-    private final BasketFrontService service;
+    private final BasketProxy proxy;
 
 
-    public BasketFrontService(BasketFrontService service) {
-        this.service = service;
+    public BasketFrontService(BasketProxy proxy) {
+        this.proxy = proxy;
     }
 
     public List<Basket> findBasketsByIdUser(int idUser){
-        return service.findBasketsByIdUser(idUser);
+        return proxy.findBasketsByIdUser(idUser);
     }
 
     public Basket findByIdUser(int idUser){
-        return service.findByIdUser(idUser);
+        return proxy.findByIdUser(idUser);
     }
 
     public Basket createBasket(Basket basket){
-        return service.createBasket(basket);
+        return proxy.createBasket(basket);
     }
 
-    public Basket updateBasket(Basket basket,int id){
-        return service.updateBasket(basket,id);
+    public Basket updateBasket(Basket basket,int idUser,int idProduct){
+        return proxy.updateBasket(basket,idUser,idProduct);
     }
 
-    public Basket deleteBasket(int id,int idUser){ return service.deleteBasket(id,idUser);}
+    public Basket deleteBasket(int id,int idUser){ return proxy.deleteBasket(id,idUser);}
 
 }
