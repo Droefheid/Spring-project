@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConfigurationProperties(prefix ="netchill.api")
+@ConfigurationProperties(prefix ="netchill")
 public class CustomProperties {
 
     private String api;

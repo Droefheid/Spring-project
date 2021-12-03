@@ -2,6 +2,7 @@ package Netchill.WEB.User.service;
 
 import Netchill.WEB.User.model.Basket;
 import Netchill.WEB.User.proxy.BasketProxy;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
@@ -20,8 +21,8 @@ public class BasketFrontService {
         return proxy.findBasketsByIdUser(idUser);
     }
 
-    public Basket findByIdUser(int idUser){
-        return proxy.findByIdUser(idUser);
+    public Basket findByIdUser(int idUser,int idProduct){
+        return proxy.findByIdUser(idUser,idProduct);
     }
 
     public Basket createBasket(Basket basket){

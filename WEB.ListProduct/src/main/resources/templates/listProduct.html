@@ -15,6 +15,7 @@
     <a class="navbar-brand" href="http://localhost:9003">Accueil</a>
     <a class="nav-link" href="/">Accueil connexion</a> <a th:if="${connected != null}" class="nav-link"
                                                           th:href="@{/account}">Mon compte</a>
+    <a class="nav-link" th:href="@{'http://localhost:9012/'}">Produits</a>
     <a th:if="${connected != null}" class="nav-link" th:href="@{'http://localhost:9002/' + ${connected}}">Mon panier</a>
     <a th:if="${connected != null}" class="nav-link" th:href="@{/logout}">Se déconnecter</a>
   </div>

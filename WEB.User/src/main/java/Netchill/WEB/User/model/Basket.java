@@ -18,6 +18,7 @@ public class Basket{
     private int idProduct;
     private int quantity;
 
-    public Basket(int i, int idUser, int idProduct, int i1) {
-    }
+
+
+
 }

@@ -8,10 +8,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableFeignClients
 @SpringBootApplication
 @EnableEurekaClient
-public class Application {
+public class BasketWebApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(BasketWebApplication.class, args);
 	}
 
 }

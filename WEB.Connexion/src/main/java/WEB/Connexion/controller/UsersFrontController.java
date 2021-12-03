@@ -33,6 +33,7 @@ public class UsersFrontController {
         return "index";
     }
 
+
     @GetMapping("/all")
     public String all(Model model, @CookieValue(value = TOKEN, defaultValue = NONE) String token) {
         User user = service.getUserFromToken(token);
@@ -61,7 +62,7 @@ public class UsersFrontController {
         if (userId == -1) {
             redirectAttributes.addFlashAttribute(USER, user);
             redirectAttributes.addFlashAttribute(MESSAGE, "Données invalides");
-            return new ModelAndView("redirect:/login");
+            return new ModelAndView("redirect:/all");
         }
         service.insertCookieAfterLogin(response, userId);
         return service.redirectToProductPage();

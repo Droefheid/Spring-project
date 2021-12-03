@@ -11,7 +11,6 @@ import java.util.List;
 
 @Component
 @FeignClient(name = "gateway")
-//@RequestMapping("/products")
 @LoadBalancerClient(name = "gateway", configuration = LoadBalancerConfig.class)
 public interface ListProductProxy {
     @GetMapping("/products")

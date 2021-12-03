@@ -12,10 +12,10 @@
 <!-- Navbar -->
 <nav class="navbar fixed-top navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="http://localhost:9003">Accueil</a>
+        <a class="navbar-brand" href="http://localhost:4200">Accueil</a>
         <a class="nav-link" href="/">Accueil connexion</a> <a th:if="${connected != null}" class="nav-link"
                                                               th:href="@{/account}">Mon compte</a>
-        <a th:if="${connected != null}" class="nav-link" th:href="@{'http://localhost:9002/' + ${connected}}">Mon panier</a>
+        <a th:if="${connected != null}" class="nav-link" th:href="@{/baskets}">Mon panier</a>
         <a th:if="${connected != null}" class="nav-link" th:href="@{/logout}">Se déconnecter</a>
     </div>
 </nav>
