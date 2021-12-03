@@ -22,7 +22,7 @@ public class ListProductFront {
     }
 
     //method to generate table products
-    @GetMapping
+    @GetMapping("/products")
     public String home(@RequestParam (required=false) String category,
                        @RequestParam(defaultValue = "-1") int priceMin,
                        @RequestParam(defaultValue = "9999999") int priceMax,
@@ -45,13 +45,13 @@ public class ListProductFront {
         return "listProduct";
     }
 
-    @PostMapping
+    @PostMapping("/products")
     public ModelAndView createProduct(@ModelAttribute Product product){
         service.createProduct(product);
         return new ModelAndView("redirect:/");
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/products/{id}")
     public ModelAndView deleteProduct(@PathVariable("id") int id){
         service.deleteProduct(id);
         return new ModelAndView("redirect:/");
