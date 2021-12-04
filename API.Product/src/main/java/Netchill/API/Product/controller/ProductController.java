@@ -16,7 +16,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/products")
 public class ProductController  {
 
     private ProductService service;
@@ -64,7 +64,7 @@ public class ProductController  {
         return new ResponseEntity<>(products, HttpStatus.OK);
 
     }
-    @GetMapping("/product/{id}")
+    @GetMapping("/products/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable("id") int id){
         Product p = service.getProduct(id);
         if(p == null){
@@ -73,7 +73,7 @@ public class ProductController  {
             return new ResponseEntity<>(p,HttpStatus.OK);
         }
     }
-    @GetMapping("/product")
+    @GetMapping("/products")
     public ResponseEntity<List<Product>> getProducts(@PathVariable(required = false)String category,
                                                @PathVariable(required = false)int priceMin,
                                                @PathVariable(required = false)int priceMax,
@@ -139,12 +139,12 @@ public class ProductController  {
         if(p == null) return ResponseEntity.noContent().build();
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
-                .path("/product/{id}")
+                .path("/products/{id}")
                 .buildAndExpand(p.getId())
                 .toUri();
         return ResponseEntity.created(location).build();
     }
-    @PutMapping("/product/{id}")
+    @PutMapping("/products/{id}")
     public ResponseEntity<HttpStatus> updateProduct(@PathVariable("id")int id,@RequestBody Product product){
         Product p = service.getProduct(id);
         if (p==null){
@@ -157,7 +157,7 @@ public class ProductController  {
 
 
 
-    @DeleteMapping("/product/{id}")
+    @DeleteMapping("/products/{id}")
     public ResponseEntity<HttpStatus> deleteProduct(@RequestBody Product product){
         service.deleteProduct(product);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);

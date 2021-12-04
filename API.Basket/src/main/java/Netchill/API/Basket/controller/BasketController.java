@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/basket")
+@RequestMapping("/baskets")
 public class BasketController {
 
     private BasketService service;
@@ -34,7 +34,7 @@ public class BasketController {
 
     }
 
-    @GetMapping("/basket/{id}")
+    @GetMapping("/baskets/{id}")
     public ResponseEntity<Basket> getBasketById(@PathVariable("id") int id){
         Basket basket = service.getBasket(id);
         if(basket == null){
@@ -51,13 +51,13 @@ public class BasketController {
         if(bask == null) return ResponseEntity.noContent().build();
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
-                .path("/basket/{id}")
+                .path("/baskets/{id}")
                 .buildAndExpand(bask.getId())
                 .toUri();
         return ResponseEntity.created(location).build();
     }
 
-    @PutMapping("/basket/{id}")
+    @PutMapping("/baskets/{id}")
     public ResponseEntity<HttpStatus> updateBasket(@PathVariable("id")int idBasket,@RequestBody Basket basket){
         Basket bask = service.getBasket(idBasket);
         if (bask==null){
@@ -68,7 +68,7 @@ public class BasketController {
         }
     }
 
-    @DeleteMapping("/basket/{id}")
+    @DeleteMapping("/baskets/{id}")
     public ResponseEntity<HttpStatus> deleteBasket(@RequestBody Basket basket){
         service.deleteBasket(basket);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);

@@ -30,7 +30,7 @@ public class UsersFrontController {
         if (user != null) {
             service.addConnectionInModel(model, Integer.toString(user.getId()));
         }
-        return "index";
+        return "accueil";
     }
 
 

@@ -18,6 +18,8 @@ public class ListProductService {
     }
 
     public Product findById(int id){return proxy.findById(id);}
+
+
     public List<Product> findAll(){ return proxy.findAll();}
 
     public List<Product> findProducts(String category, int priceMin,int priceMax, boolean asc){

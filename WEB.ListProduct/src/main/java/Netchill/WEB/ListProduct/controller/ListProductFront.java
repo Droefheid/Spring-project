@@ -14,7 +14,7 @@ import java.util.*;
 public class ListProductFront {
 
 
-    private ListProductService service;
+    private final ListProductService service;
 
     public ListProductFront( ListProductService service){
 
@@ -22,8 +22,8 @@ public class ListProductFront {
     }
 
     //method to generate table products
-    @GetMapping("/products")
-    public String home(@RequestParam (required=false) String category,
+    @GetMapping
+    public String listProduct(@RequestParam (required=false) String category,
                        @RequestParam(defaultValue = "-1") int priceMin,
                        @RequestParam(defaultValue = "9999999") int priceMax,
                        @RequestParam(defaultValue = "true") boolean asc,

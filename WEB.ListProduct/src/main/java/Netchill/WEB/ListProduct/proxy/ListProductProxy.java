@@ -1,7 +1,7 @@
 package Netchill.WEB.ListProduct.proxy;
 
+import Netchill.WEB.ListProduct.loadbalancer.LoadBalancerConfig;
 import Netchill.WEB.ListProduct.model.Product;
-import WEB.Connexion.loadbalancer.LoadBalancerConfig;
 import org.springframework.cloud.loadbalancer.annotation.LoadBalancerClient;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
@@ -12,8 +12,9 @@ import java.util.List;
 @Component
 @FeignClient(name = "gateway")
 @LoadBalancerClient(name = "gateway", configuration = LoadBalancerConfig.class)
+//@FeignClient(name = "product-server", url = "localhost:4201")
 public interface ListProductProxy {
-    @GetMapping("/products")
+    @GetMapping
     List<Product> findAll();
 
 
