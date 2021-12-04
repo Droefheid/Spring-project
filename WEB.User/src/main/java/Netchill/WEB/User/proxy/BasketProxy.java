@@ -1,8 +1,9 @@
 package Netchill.WEB.User.proxy;
 
+import Netchill.WEB.User.loadbalancer.LoadBalancerConfig;
 import Netchill.WEB.User.model.Basket;
 import Netchill.WEB.User.model.User;
-import WEB.Connexion.loadbalancer.LoadBalancerConfig;
+
 import org.springframework.cloud.loadbalancer.annotation.LoadBalancerClient;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
@@ -15,7 +16,7 @@ import java.util.List;
 @LoadBalancerClient(name = "gateway", configuration = LoadBalancerConfig.class)
 public interface BasketProxy {
 
-    @GetMapping(":/baskets")
+    @GetMapping
     List<Basket> findBasketsByIdUser(@PathVariable("id")int idUser);
 
     @GetMapping("/{id}")

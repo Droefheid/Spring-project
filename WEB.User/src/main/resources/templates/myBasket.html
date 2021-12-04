@@ -35,21 +35,19 @@
             <th>Supprimer</th>
         </tr>
 
-        <div th:if="${products.empty}">
+        <div th:if="${baskets.isEmpty()}">
             <p>pas de produit dans la base de données. Etonnant !</p>
         </div>
-        <div class="w3-third" th:each="product : ${products}">
-            <td th:text="${product.getId()}"></td>
-            <td th:text="${product.getName()}"></td>
-            <td th:text="${product.getShortDescription()}"></td>
-            <td th:text="${product.getLongueDescription()}"></td>
-            <td th:text="${product.getPrice()}"></td>
-            <td th:text="${product.getCategory()}"></td>
+        <div class="w3-third" th:each="basket : ${baskets}">
+            <td th:text="${basket.getIdProduct()}"></td>
+            <td th:text="${basket.getQuantity()}"></td>
+
             <td>
-                <a th:href="@{'/update/' + ${product.id}}" style="text-decoration: none"><button class="w3-btn w3-black">UPDATE</button></a>
+                <a th:href="@{'/update/' + ${basket.getQuantity()}}" style="text-decoration: none"><button class="w3-btn w3-black">+</button></a>
+                <a th:href="@{'/update/' + ${basket.getQuantity()}}" style="text-decoration: none"><button class="w3-btn w3-black">-</button></a>
             </td>
             <td>
-                <a th:href="@{'/delete/' + ${product.id}}" style="text-decoration: none"><button class="w3-btn w3-red">X</button></a>
+                <a th:href="@{'/delete/' + ${basket.getIdProduct()}}" style="text-decoration: none"><button class="w3-btn w3-red">Supprimer</button></a>
             </td>
         </div>
 

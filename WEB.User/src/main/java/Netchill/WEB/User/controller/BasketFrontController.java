@@ -35,8 +35,8 @@ public class BasketFrontController {
         List<Basket> baskets = service.findBasketsByIdUser(2);
         model.addAttribute("baskets", baskets);
         for (Basket b:baskets) {
-           // Basket basket = service.findByIdUser(idUser,idProduct);
-            model.addAttribute("basket",b);
+            Basket basket = service.findByIdUser(2,b.getIdProduct());
+            model.addAttribute("basket",basket);
         }
 
         return "myBasket";

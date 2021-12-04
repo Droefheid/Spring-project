@@ -9,12 +9,14 @@ import org.springframework.cloud.client.loadbalancer.Response;
 import org.springframework.cloud.loadbalancer.core.NoopServiceInstanceListSupplier;
 import org.springframework.cloud.loadbalancer.core.ReactorServiceInstanceLoadBalancer;
 import org.springframework.cloud.loadbalancer.core.ServiceInstanceListSupplier;
+import org.springframework.context.annotation.Bean;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
 
 public class RandomLoadBalancer implements ReactorServiceInstanceLoadBalancer {
     private final ObjectProvider<ServiceInstanceListSupplier> instancesProvider;
+
 
     public RandomLoadBalancer(ObjectProvider<ServiceInstanceListSupplier> instancesProvider) {
         this.instancesProvider = instancesProvider;
