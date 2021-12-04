@@ -44,7 +44,7 @@
         </tr>
 
 
-        <div th:if="${products.empty}">
+        <div th:if="${products.isEmpty()}">
           <p>pas de produit dans la base de données. Etonnant !</p>
         </div>
         <div class="w3-third" th:each="product : ${products}">

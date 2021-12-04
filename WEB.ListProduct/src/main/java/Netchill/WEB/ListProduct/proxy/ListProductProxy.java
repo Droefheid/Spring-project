@@ -13,6 +13,7 @@ import java.util.List;
 @FeignClient(name = "gateway")
 @LoadBalancerClient(name = "gateway", configuration = LoadBalancerConfig.class)
 //@FeignClient(name = "product-server", url = "localhost:4201")
+
 public interface ListProductProxy {
     @GetMapping
     List<Product> findAll();

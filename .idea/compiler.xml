@@ -12,6 +12,7 @@
         <module name="API.Gateway" />
         <module name="API.Basket" />
         <module name="Comments" />
+        <module name="API.Registry" />
         <module name="WEB.Connexion" />
         <module name="API.Comments" />
         <module name="WEB.ListProduct" />
@@ -25,6 +26,7 @@
       <module name="API.Comments" target="11" />
       <module name="API.Gateway" target="11" />
       <module name="API.Product" target="11" />
+      <module name="API.Registry" target="11" />
       <module name="API.User" target="11" />
       <module name="Comments" target="11" />
       <module name="Connexion" target="11" />
@@ -41,6 +43,7 @@
       <module name="API.Comments" options="-parameters" />
       <module name="API.Gateway" options="-parameters" />
       <module name="API.Product" options="-parameters" />
+      <module name="API.Registry" options="-parameters" />
       <module name="API.User" options="-parameters" />
       <module name="Comments" options="-parameters" />
       <module name="Connexion" options="-parameters" />

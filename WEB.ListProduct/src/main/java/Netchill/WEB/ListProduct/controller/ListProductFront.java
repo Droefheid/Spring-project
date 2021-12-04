@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.*;
-@Controller("/products")
+@Controller
 //@RequestMapping("/products")
 public class ListProductFront {
 
@@ -29,7 +29,7 @@ public class ListProductFront {
                        @RequestParam(defaultValue = "true") boolean asc,
                        Model model){
         if((category==null)){
-            if(priceMin<0 && priceMax>= 9999999) {
+            if(priceMin!=0 && priceMax>= 9999999) {
                 model.addAttribute("products", service.findAll());
             }else{
                 model.addAttribute("products", service.findProducts(null,priceMin,priceMax,asc));
