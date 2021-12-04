@@ -7,15 +7,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="WEB.Product" />
         <module name="WEB.Basket" />
+        <module name="WEB.User" />
         <module name="API.Gateway" />
-        <module name="API.Basket" />
         <module name="Comments" />
-        <module name="API.Registry" />
         <module name="WEB.Connexion" />
         <module name="API.Comments" />
         <module name="WEB.ListProduct" />
+        <module name="API.Basket" />
+        <module name="API.Registry" />
         <module name="Connexion" />
         <module name="API.User" />
         <module name="API.Product" />
@@ -34,6 +34,7 @@
       <module name="WEB.Connexion" target="11" />
       <module name="WEB.ListProduct" target="11" />
       <module name="WEB.Product" target="11" />
+      <module name="WEB.User" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -50,6 +51,7 @@
       <module name="WEB.Connexion" options="-parameters" />
       <module name="WEB.ListProduct" options="-parameters" />
       <module name="WEB.Product" options="-parameters" />
+      <module name="WEB.User" options="-parameters" />
     </option>
   </component>
 </project>

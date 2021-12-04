@@ -14,6 +14,7 @@
       <module fileurl="file://$PROJECT_DIR$/WEB.Connexion/WEB.Connexion.iml" filepath="$PROJECT_DIR$/WEB.Connexion/WEB.Connexion.iml" />
       <module fileurl="file://$PROJECT_DIR$/WEB.ListProduct/WEB.ListProduct.iml" filepath="$PROJECT_DIR$/WEB.ListProduct/WEB.ListProduct.iml" />
       <module fileurl="file://$PROJECT_DIR$/WEB.Product/WEB.Product.iml" filepath="$PROJECT_DIR$/WEB.Product/WEB.Product.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WEB.Basket/WEB.User.iml" filepath="$PROJECT_DIR$/WEB.Basket/WEB.User.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/netchill.iml" filepath="$PROJECT_DIR$/.idea/netchill.iml" />
     </modules>
   </component>
