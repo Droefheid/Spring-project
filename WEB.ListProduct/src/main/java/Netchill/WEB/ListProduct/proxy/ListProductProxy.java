@@ -4,6 +4,7 @@ import Netchill.WEB.ListProduct.loadbalancer.LoadBalancerConfig;
 import Netchill.WEB.ListProduct.model.Product;
 import org.springframework.cloud.loadbalancer.annotation.LoadBalancerClient;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,10 +14,9 @@ import java.util.List;
 @FeignClient(name = "gateway")
 @LoadBalancerClient(name = "gateway", configuration = LoadBalancerConfig.class)
 //@FeignClient(name = "product-server", url = "localhost:4201")
-
 public interface ListProductProxy {
     @GetMapping
-    List<Product> findAll();
+    ResponseEntity<List<Product>> findAll();
 
 
     @GetMapping("/products")
@@ -26,13 +26,13 @@ public interface ListProductProxy {
                                @RequestParam(defaultValue = "true") boolean asc);
 
     @PostMapping
-    Product createProduct(@RequestBody Product product);
+    ResponseEntity createProduct(@RequestBody Product product);
 
     @PutMapping("/products/{id}")
-    Product updateProduct(@RequestBody Product product,@PathVariable("id") int id);
+    ResponseEntity updateProduct(@RequestBody Product product,@PathVariable("id") int id);
 
     @DeleteMapping("products/{id}")
-    Product deleteProduct(@PathVariable("id") int id);
+    ResponseEntity deleteProduct(@PathVariable("id") int id);
 
     @GetMapping("products/{id}")
     Product findById(@PathVariable("id") int id);

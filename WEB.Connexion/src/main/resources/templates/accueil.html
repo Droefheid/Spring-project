@@ -13,7 +13,7 @@
     <div class="container">
         <a class="navbar-brand" href="http://localhost:9003">Accueil</a>
         <a th:if="${connected != null}" class="nav-link" th:href="@{/account}">Mon compte</a>
-        <a class="nav-link" th:href="@{'http://localhost:4211/'}">Produitsquoi</a>
+        <a class="nav-link" th:href="@{'http://localhost:4211/products'}">Produitsquoi</a>
         <a class="nav-link" th:href="@{'http://localhost:9010/'}">Mon panieer</a>
         <a th:if="${connected != null}" class="nav-link" th:href="@{/logout}">Se déconnecter </a>
     </div>

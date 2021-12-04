@@ -16,10 +16,9 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/products")
 public class ProductController  {
 
-    private ProductService service;
+
 /*
     @GetMapping
     public List<Product> getProduct(@RequestParam(required = false) String category){
@@ -49,7 +48,9 @@ public class ProductController  {
    }
     }*/
 
-    @GetMapping
+    private ProductService service;
+
+
     public ResponseEntity<List<Product>> getProduct(@RequestBody(required = false)String category) {
         List<Product> products = new ArrayList<>();
 
@@ -64,17 +65,18 @@ public class ProductController  {
         return new ResponseEntity<>(products, HttpStatus.OK);
 
     }
-    @GetMapping("/products/{id}")
-    public ResponseEntity<Product> getProductById(@PathVariable("id") int id){
-        Product p = service.getProduct(id);
-        if(p == null){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }else{
-            return new ResponseEntity<>(p,HttpStatus.OK);
+    @GetMapping
+    public ResponseEntity<List<Product>> findAll(){
+        List<Product> products = new ArrayList<>();
+        service.getProducts().forEach(products::add);
+
+        if(products.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
+        return new ResponseEntity<>(products, HttpStatus.OK);
     }
     @GetMapping("/products")
-    public ResponseEntity<List<Product>> getProducts(@PathVariable(required = false)String category,
+    public ResponseEntity<List<Product>>findProductsBy(@PathVariable(required = false)String category,
                                                @PathVariable(required = false)int priceMin,
                                                @PathVariable(required = false)int priceMax,
                                                      @PathVariable(required = true)boolean asc){
@@ -133,7 +135,7 @@ public class ProductController  {
 
 
 
-    @PostMapping
+    @PostMapping("/product/{id}")
     public ResponseEntity<Void> createProduct(@RequestBody Product product){
         Product p = service.saveProduct(product);
         if(p == null) return ResponseEntity.noContent().build();
